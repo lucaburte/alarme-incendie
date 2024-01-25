@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compteur d'alarme incendie</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #111;
+        }
+        
+        h1 {
+            color: #FF4500; /* Orange Red */
+        }
+
+        #counter {
+            font-size: 3em;
+            color: #FF6347; /* Tomato */
+            margin: 20px 0;
+            animation: flameAnimation 1s infinite alternate;
+        }
+
+        #addButton, #subtractButton {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        #addButton {
+            background-color: #FFA500; /* Orange */
+            color: white;
+        }
+
+        #subtractButton {
+            background-color: #DC143C; /* Crimson */
+            color: white;
+        }
+
+        @keyframes flameAnimation {
+            from { color: #FF6347; }
+            to { color: #FF4500; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Compteur d'alarme incendie</h1>
+    <div id="counter">0</div>
+    <button id="addButton">+1</button>
+    <button id="subtractButton">-1</button>
+
+    <script>
+        let alarmCounter = 0;
+        const counterElement = document.getElementById('counter');
+        const addButton = document.getElementById('addButton');
+        const subtractButton = document.getElementById('subtractButton');
+
+        // Fonction pour mettre à jour le compteur
+        function updateCounter(value) {
+            alarmCounter += value;
+            counterElement.textContent = alarmCounter;
+        }
+
+        // Écouteurs d'événements pour les boutons
+        addButton.addEventListener('click', function() {
+            updateCounter(1); // Ajouter 1 au compteur
+        });
+
+        subtractButton.addEventListener('click', function() {
+            updateCounter(-1); // Soustraire 1 au compteur
+        });
+    </script>
+</body>
+</html>
